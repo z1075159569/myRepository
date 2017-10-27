@@ -1,0 +1,66 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: microservice-gateway-zuul-aggregation
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    com.netflix: DEBUG
+
+#zuul:
+#  routes:
+#  #该配置方式中。api-a只是给路由一个名称，可以任意起名
+#    apl
+#      path: /api-a/**
+#      serviceId: microservice-provider-user
+#  #该配置方式中。api-b只是给路由一个名称，可以任意起名
+#    api-b:
+#      path: /api-b/**
+#      serviceId: microservice-consumer-movie
+
+
+#zuul:
+#  prefix: /simple
+#  strip-prefix: false
+#ribbon:
+#  eureka:
+#    enable: false
+
+
+#zuul:
+#  ignored-services: microservice-consumer-movie
+#  routes:
+#    microservice-provider-user: /testuser/**
+
+
+#zuul:
+#  routes:
+#    user-route:
+#      path: /user/**
+#      service-id: microservice-provider-user
+#ribbon:
+#  eureka:
+#    enable: false #为Rabbit禁止Eureka
+#microservice-provider-user:
+#  ribbon:
+#    listOfServers: localhost:8000,localhost:8001
+
+
+#zuul:
+#  routes:
+#    user-route:
+#      path: /user/**
+#      service-id: microservice-provider-user-v1
+#ribbon:
+#  eureka:
+#    enable: false #为Rabbit禁止Eureka
+#microservice-provider-user:
+#  ribbon:
+#    listOfServers: localhost:8000,localhost:8001
